@@ -26,7 +26,7 @@ INSTALL_DIR="$VENDOR_DIR/pandoc"
 BIN_DIR="$INSTALL_DIR/bin"
 SHARE_DIR="$INSTALL_DIR/share"
 REAL_DIR="$HOME/vendor/pandoc/bin"
-DEB_ARCHIVE_BINARIES="data.tar.gz"
+DEB_ARCHIVE_BINARIES="data.tar.xz"
 PANDOC_PKG="$CACHE_DIR/pandoc-$PANDOC_RELEASE-1-amd64.deb"
 
 mkdir -p $BUILD_DIR $CACHE_DIR $VENDOR_DIR $INSTALL_DIR $BIN_DIR $SHARE_DIR $REAL_DIR
@@ -57,7 +57,6 @@ verbose "Extract pandoc from $PANDOC_PKG to $INSTALL_DIR"
 
 ar p $PANDOC_PKG $DEB_ARCHIVE_BINARIES \
     | tar --extract \
-          --gzip \
           --strip-components 2 \
           --directory $INSTALL_DIR | indent
 
