@@ -57,6 +57,7 @@ verbose "Extract pandoc from $PANDOC_PKG to $INSTALL_DIR"
 
 ar p $PANDOC_PKG $DEB_ARCHIVE_BINARIES \
     | tar --extract \
+          --xz \
           --strip-components 2 \
           --directory $INSTALL_DIR | indent
 
